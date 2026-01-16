@@ -1,4 +1,9 @@
 {
   "name": "audit-node-new",
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@1.22.22",
+  "dependencies": {
+    "lighthouse": "^13.0.1",
+    "pdfkit": "^0.17.2",
+    "puppeteer": "^24.35.0"
+  }
 }
