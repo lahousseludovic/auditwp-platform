@@ -60,5 +60,5 @@ async function runAudit(url) {
 }
 
 // Exécuter le script sur une URL exemple
-const url = process.argv[2] || 'https://hdf-solutiontoiture.fr';
+const url = process.argv[2] || 'https://example.com';
 runAudit(url);
