@@ -1,3 +1,3 @@
 audit:
   service:
-    base-url: http://audit-node-new:3001
+    base-url: ${AUDIT_NODE_URL:http://audit-node-new:3001}

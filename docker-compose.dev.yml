@@ -26,6 +26,7 @@ services:
     depends_on:
       - audit-node-new
     environment:
+      - SPRING_PROFILES_ACTIVE=dev
       - AUDIT_NODE_URL=http://audit-node-new:3001
     networks:
       - auditwp-dev
@@ -39,6 +40,7 @@ services:
       - "3001:3001"
     volumes:
       - ./apps/audit-node-new:/app
+      - /app/node_modules
     networks:
       - auditwp-dev
 
