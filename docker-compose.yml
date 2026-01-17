@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./apps/frontend
+    container_name: audit-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - audit-network
+
+  backend:
+    build:
+      context: ./apps/backend
+    container_name: audit-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - audit-network
+
+  audit-node:
+    build:
+      context: ./apps/audit-node-new
+    container_name: audit-node
+    # Pas exposé pour l'instant (appel interne plus tard)
+    networks:
+      - audit-network
+
+networks:
+  audit-network:
+    driver: bridge
