@@ -1,7 +1,19 @@
 <template>
-  <h1>Bienvenue dans Nuxt 4 !</h1>
+  <main>
+    <NuxtPage />
+  </main>
 </template>
 
 <script setup>
-console.log("Page chargée")
+// rien de particulier ici pour ce minimal
 </script>
+
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+main {
+  padding: 1rem;
+}
+</style>

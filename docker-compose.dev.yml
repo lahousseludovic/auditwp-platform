@@ -26,7 +26,7 @@ services:
     depends_on:
       - audit-node-new
     environment:
-      - NODE_AUDIT_URL=http://audit-node:3001
+      - NODE_AUDIT_URL=http://audit-node-new:3001
     networks:
       - auditwp-dev
 
