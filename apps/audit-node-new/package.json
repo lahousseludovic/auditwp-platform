@@ -1,6 +1,7 @@
 {
   "name": "audit-node-new",
   "packageManager": "yarn@1.22.22",
+  "type": "module",
   "dependencies": {
     "lighthouse": "^13.0.1",
     "pdfkit": "^0.17.2",
