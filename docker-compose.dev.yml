@@ -26,7 +26,7 @@ services:
     depends_on:
       - audit-node-new
     environment:
-      - NODE_AUDIT_URL=http://audit-node-new:3001
+      - AUDIT_NODE_URL=http://audit-node-new:3001
     networks:
       - auditwp-dev
 
@@ -34,11 +34,11 @@ services:
     build:
       context: ./apps/audit-node-new
       dockerfile: Dockerfile.dev
-    container_name: audit-node
+    container_name: audit-node-new
     ports:
       - "3001:3001"
     volumes:
-      - ./apps/audit-node:/app
+      - ./apps/audit-node-new:/app
     networks:
       - auditwp-dev
 

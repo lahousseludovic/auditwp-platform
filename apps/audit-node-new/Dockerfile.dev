@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["nodemon", "--watch", ".", "--ext", "js, ts", "index.js"]
+CMD ["nodemon", "--watch", ".", "--ext", "js, ts", "server.js"]

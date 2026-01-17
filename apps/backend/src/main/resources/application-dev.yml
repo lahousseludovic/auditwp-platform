@@ -1,0 +1,3 @@
+audit:
+  service:
+    base-url: http://audit-node-new:3001
