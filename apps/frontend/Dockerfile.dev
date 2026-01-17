@@ -1,0 +1,17 @@
+# frontend/Dockerfile.dev
+FROM node:22-bullseye
+
+WORKDIR /app
+
+# Installer build tools pour bindings natifs (oxc-parser, etc.)
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+
+ENV CHOKIDAR_USEPOLLING=true
+
+COPY package*.json ./
+RUN yarn install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["yarn", "dev", "-H", "0.0.0.0"]

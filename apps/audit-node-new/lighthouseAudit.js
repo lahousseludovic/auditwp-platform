@@ -1,4 +1,4 @@
-// lighthouseMVP.js
+// lighthouseAudit.js
 import puppeteer from 'puppeteer';
 import lighthouse from 'lighthouse';
 import PDFDocument from 'pdfkit';
@@ -16,7 +16,7 @@ const RECOMMENDATIONS = {
 async function runAudit(url) {
   if (!url) {
     console.error("Erreur : vous devez fournir une URL en argument.");
-    console.error("Exemple : node lighthouseMVP.js https://example.com");
+    console.error("Exemple : node lighthouseAudit.js https://example.com");
     return;
   }
 
