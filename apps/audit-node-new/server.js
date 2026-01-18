@@ -5,15 +5,8 @@ const app = express();
 app.use(express.json());
 
 app.post("/audit", async (req, res) => {
-console.log(`req : ${req}`);
-console.log(`res : ${res}`);
-console.log(`req body : ${req.body}`);
-
 
   const { url } = req.body;
-
-  console.log(`url : ${url}`);
-
 
   if (!url) {
     return res.status(400).json({ error: "url is required" });
