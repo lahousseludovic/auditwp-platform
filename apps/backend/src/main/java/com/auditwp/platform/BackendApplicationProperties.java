@@ -9,5 +9,5 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class BackendApplicationProperties {
 
-    private String auditBaseUrl;
+    private String baseUrl;
 }

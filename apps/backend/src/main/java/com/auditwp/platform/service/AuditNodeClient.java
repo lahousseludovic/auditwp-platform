@@ -1,5 +1,6 @@
 package com.auditwp.platform.service;
 
+import com.auditwp.platform.BackendApplicationProperties;
 import com.auditwp.platform.dto.AuditRequest;
 import com.auditwp.platform.dto.AuditScores;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +14,10 @@ public class AuditNodeClient {
 
     private final WebClient webClient;
 
-    public AuditNodeClient(final WebClient.Builder builder, @Value("${AUDIT_NODE_URL:http://localhost:3001}") String auditNodeUrl) {
+    public AuditNodeClient(final WebClient.Builder builder, BackendApplicationProperties props) {
+        System.out.println("props : " + props);
         this.webClient = builder
-                .baseUrl(auditNodeUrl) // ton service Node
+                .baseUrl(props.getBaseUrl()) // ton service Node
                 .build();
     }
 
