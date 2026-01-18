@@ -28,6 +28,8 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - AUDIT_NODE_URL=http://audit-node-new:3001
+      - MAIL_USERNAME=lahousseludovic@gmail.com
+      - MAIL_PASSWORD=ijku hawv opwl paqm
     networks:
       - auditwp-dev
 

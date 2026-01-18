@@ -6,8 +6,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ton.email@gmail.com
-    password: ton_mdp_app  # pas ton mot de passe normal, utiliser mot de passe d'application
+    username: ${MAIL_USERNAME:lahousseludovic@gmail.com}
+    password: ${MAIL_PASSWORD:ijku hawv opwl paqm} # pas ton mot de passe normal, utiliser mot de passe d'application
     protocol: smtp
     properties:
       mail.smtp.auth: true
