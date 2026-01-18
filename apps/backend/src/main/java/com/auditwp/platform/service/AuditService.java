@@ -39,8 +39,8 @@ public class AuditService {
                         "<body>" +
                         "<h1>Rapport Audit</h1>" +
                         "<p>URL : " + request.getUrl() + "</p>" +
-                        "<p>Score SEO : " + scores.getScores().getOrDefault("seo", 0.0) + "</p>" +
-                        "<p>Score Performance : " + scores.getScores().getOrDefault("performance", 0.0) + "</p>" +
+                        "<p>Score SEO : " + scores.getScores().getSeo() + "</p>" +
+                        "<p>Score Performance : " + scores.getScores().getPerformance() + "</p>" +
                                 "</body>" +
                                         "</html>";
 

@@ -15,7 +15,6 @@ public class AuditNodeClient {
     private final WebClient webClient;
 
     public AuditNodeClient(final WebClient.Builder builder, BackendApplicationProperties props) {
-        System.out.println("props : " + props.getBaseUrl());
         this.webClient = builder
                 .baseUrl(props.getBaseUrl()) // ton service Node
                 .build();
