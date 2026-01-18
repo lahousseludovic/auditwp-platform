@@ -1,3 +1,14 @@
 audit:
   service:
-    base-url: ${AUDIT_NODE_URL:http://audit-node-new:3001}
+    base-url: ${AUDIT_NODE_URL:http://localhost:3001}
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: lahousseludovic@gmail.com
+    password: ijku hawv opwl paqm  # pas ton mot de passe normal, utiliser mot de passe d'application
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true

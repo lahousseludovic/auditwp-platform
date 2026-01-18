@@ -11,6 +11,8 @@ public class AuditService {
 
     @Autowired
     private AuditNodeClient auditNodeClient;
+    @Autowired
+    private MailService mailService;
 
     public AuditResult runAudit(final AuditRequest request) {
         if (request.getEmail() == null || request.getEmail().isBlank()) {
@@ -25,6 +27,19 @@ public class AuditService {
         try {
             // Appel node
             scores = this.auditNodeClient.launchAudit(request);
+
+            if (scores != null) {
+
+                // Envoi du mail avec le pdf
+//                byte[] pdf = PdfGeneratorService.generatePdfFromHtml("Voici votre audit");
+
+                mailService.sendSimpleMail(
+                        request.getEmail(),
+                        "Rapport d'audit",
+                        "Bonjour,\n\nVeuillez trouver votre rapport d'audit en pièce jointe.\n\nCordialement."
+                );
+            }
+
         } catch (Exception e) {
             return new AuditResult(false, "Impossible de lancer l'audit : " + e.getMessage(), null);
         }
