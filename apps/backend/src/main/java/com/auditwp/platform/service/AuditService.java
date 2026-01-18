@@ -30,14 +30,31 @@ public class AuditService {
 
             if (scores != null) {
 
-                // Envoi du mail avec le pdf
-//                byte[] pdf = PdfGeneratorService.generatePdfFromHtml("Voici votre audit");
+                String html = "<!DOCTYPE html>" +
+                        "<html lang='fr'>" +
+                        "<head>" +
+                        "<meta charset='UTF-8' />" + // <-- note le "/" à la fin
+                        "<title>Rapport Audit</title>" +
+                        "</head>" +
+                        "<body>" +
+                        "<h1>Rapport Audit</h1>" +
+                        "<p>URL : " + request.getUrl() + "</p>" +
+                        "<p>Score SEO : " + scores.getScores().getOrDefault("seo", 0.0) + "</p>" +
+                        "<p>Score Performance : " + scores.getScores().getOrDefault("performance", 0.0) + "</p>" +
+                                "</body>" +
+                                        "</html>";
 
-                mailService.sendSimpleMail(
+
+                byte[] pdf = PdfGeneratorService.generatePdfFromHtml(html);
+
+                mailService.sendMailWithPdf(
                         request.getEmail(),
-                        "Rapport d'audit",
-                        "Bonjour,\n\nVeuillez trouver votre rapport d'audit en pièce jointe.\n\nCordialement."
+                        "Votre rapport AuditWP",
+                        "Bonjour,\nVeuillez trouver ci-joint le rapport PDF de votre audit.",
+                        pdf,
+                        "audit-report.pdf"
                 );
+
             }
 
         } catch (Exception e) {
