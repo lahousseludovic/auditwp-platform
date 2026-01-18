@@ -32,6 +32,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring WebFlux (WebClient) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
         <!-- Lombok (compile-time only) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -47,10 +53,26 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- OpenHTMLToPDF pour générer PDF -->
+        <dependency>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-pdfbox</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
+        <!-- Core OpenHTMLToPDF (CSS etc.) -->
+        <dependency>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-core</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
+        <!-- Spring Boot Mail pour envoyer les PDF par email -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

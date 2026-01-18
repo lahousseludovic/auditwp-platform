@@ -11,7 +11,7 @@ public class AuditService {
     @Autowired
     private AuditNodeClient auditNodeClient;
 
-    public AuditScores runAudit(final AuditRequest request) {
-        return this.auditNodeClient.launchAudit(request);
+    public void runAudit(final AuditRequest request) {
+        final AuditScores scores = this.auditNodeClient.launchAudit(request);
     }
 }
