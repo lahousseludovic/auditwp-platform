@@ -3,6 +3,9 @@ package com.auditwp.platform.service;
 import com.auditwp.platform.dto.AuditRequest;
 import com.auditwp.platform.dto.AuditResult;
 import com.auditwp.platform.dto.AuditScores;
+import com.auditwp.platform.dto.AuditStatus;
+import com.auditwp.platform.entity.AuditJobEntity;
+import com.auditwp.platform.repository.AuditJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,8 @@ public class AuditService {
     private AuditNodeClient auditNodeClient;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private AuditJobRepository repository;
 
     public AuditResult runAudit(final AuditRequest request) {
         if (request.getEmail() == null || request.getEmail().isBlank()) {
@@ -55,9 +60,22 @@ public class AuditService {
                         "audit-report.pdf"
                 );
 
+                repository.save(AuditJobEntity.builder()
+                        .url(request.getUrl())
+                        .email(request.getEmail())
+                        .status(AuditStatus.SUCCESS)
+                        .errorMessage("")
+                        .build());
+
             }
 
         } catch (Exception e) {
+            repository.save(AuditJobEntity.builder()
+                    .url(request.getUrl())
+                    .email(request.getEmail())
+                    .status(AuditStatus.FAILED)
+                    .errorMessage(e.getMessage())
+                    .build());
             return new AuditResult(false, "Impossible de lancer l'audit : " + e.getMessage(), null);
         }
 
