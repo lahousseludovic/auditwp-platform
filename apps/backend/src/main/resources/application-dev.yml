@@ -13,7 +13,7 @@ spring:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
   datasource:
-    url: jdbc:postgresql://db.gesifxkxxwfmaxlmutqt.supabase.co:5432/postgres?user=${DB_USER}&password=${DB_PASSWORD}
+    url: jdbc:postgresql://${DB_HOST}:5432/postgres?user=${DB_USER}&password=${DB_PASSWORD}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver

@@ -30,7 +30,9 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - AUDIT_NODE_URL=http://audit-node-new:3001
+      - JAVA_TOOL_OPTIONS=-Djava.net.preferIPv6Addresses=true
     networks:
+      - mynet6
       - auditwp-dev
 
   audit-node-new:
@@ -49,3 +51,9 @@ services:
 networks:
   auditwp-dev:
     driver: bridge
+  mynet6:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 2001:db8:1::/64
